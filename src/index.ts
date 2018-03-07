@@ -11,6 +11,8 @@ export interface Attrs {
 	checked?: boolean
 	/** Optional class to apply to containing element */
 	class?: string
+	/** Optional input type (default checkbox) */
+	type?: string
 	/** Click event handler */
 	onclick?(e: MouseEvent): any
 	/** Any other attrs are forwarded to the hidden input element */
@@ -19,7 +21,7 @@ export interface Attrs {
 
 export default {
 	view ({attrs, children}) {
-		const inputAttrs = {...attrs, type: 'checkbox', class: undefined}
+		const inputAttrs = {...attrs, type: attrs.type || 'checkbox', class: undefined}
 		return m('label.mithril-checkbox',
 			{
 				class: attrs.class,
