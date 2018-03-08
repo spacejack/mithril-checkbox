@@ -2,7 +2,7 @@ import * as m from 'mithril'
 
 export interface Attrs {
 	/** An id is required to connect the input and label elements */
-	id: string
+	id?: string
 	/** Optional input name */
 	name?: string
 	/** Optional input value */
@@ -21,13 +21,15 @@ export interface Attrs {
 
 export default {
 	view ({attrs, children}) {
-		const inputAttrs = {...attrs, type: attrs.type || 'checkbox', class: undefined}
+		const inputAttrs = Object.assign(
+			{}, attrs, {type: attrs.type || 'checkbox', class: undefined}
+		)
+		const containerAttrs: {[id: string]: any} = {}
+		if (attrs.id !== undefined) containerAttrs.for = attrs.id
+		if (attrs.class !== undefined) containerAttrs.class = attrs.class
 		return m('label.mithril-checkbox',
-			{
-				class: attrs.class,
-				for: inputAttrs.id
-			},
-			m('input.mithril-checkbox-input', inputAttrs),
+			containerAttrs,
+			m('input', inputAttrs),
 			m('div.mithril-checkbox-shape'),
 			children
 		)
