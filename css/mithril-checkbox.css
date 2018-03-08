@@ -1,0 +1,89 @@
+/* label/container */
+.mithril-checkbox {
+	display: inline-block;
+	position: relative;
+	padding-left: 1.35em;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Hide default input */
+.mithril-checkbox input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
+/* Custom checkbox shape */
+.mithril-checkbox input[type="checkbox"] ~ .mithril-checkbox-shape {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 1em;
+	width: 1em;
+	border: 0.1em solid;
+	box-sizing: border-box;
+}
+
+/* Custom radio button shape */
+.mithril-checkbox input[type="radio"] ~ .mithril-checkbox-shape {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 1em;
+	width: 1em;
+	border: 0.1em solid;
+	border-radius: 50%;
+	box-sizing: border-box;
+}
+
+/* hover style */
+.mithril-checkbox:hover input ~ .mithril-checkbox-shape {
+}
+
+/* checked style */
+.mithril-checkbox input:checked ~ .mithril-checkbox-shape {
+}
+
+/* focused style */
+.mithril-checkbox input:focus ~ .mithril-checkbox-shape {
+	outline: #428BCA 1px solid;
+}
+
+/* checkmark/indicator (hidden when not checked) */
+.mithril-checkbox .mithril-checkbox-shape:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* show when checked */
+.mithril-checkbox input:checked ~ .mithril-checkbox-shape:after {
+	display: block;
+}
+
+/* checkmark (displayed when checked) */
+.mithril-checkbox input[type="checkbox"] ~ .mithril-checkbox-shape:after {
+	left: 0.25em;
+	top: 0.0325em;
+	width: 0.25em;
+	height: 0.5em;
+	border: solid;
+	border-width: 0 0.1em 0.1em 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+/* radio indicator (displayed when checked) */
+.mithril-checkbox input[type="radio"] ~ .mithril-checkbox-shape:after {
+	left: 0.15em;
+	top: 0.15em;
+	width: 0.5em;
+	height: 0.5em;
+	background-color: #000;
+	border-radius: 50%;
+}
