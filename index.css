@@ -30,7 +30,6 @@
 
 /* Custom radio button shape */
 .mithril-checkbox input[type="radio"] ~ .mithril-checkbox-shape {
-	display: inline-block;
 	position: absolute;
 	top: 0;
 	left: 0;
