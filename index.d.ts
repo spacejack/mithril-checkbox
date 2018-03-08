@@ -2,7 +2,7 @@
 import * as m from 'mithril';
 export interface Attrs {
     /** An id is required to connect the input and label elements */
-    id: string;
+    id?: string;
     /** Optional input name */
     name?: string;
     /** Optional input value */
