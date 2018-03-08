@@ -40,7 +40,7 @@
 	box-sizing: border-box;
 }
 
-/* mouse-over style */
+/* hover style */
 .mithril-checkbox:hover input ~ .mithril-checkbox-shape {
 }
 
@@ -65,6 +65,7 @@
 	display: block;
 }
 
+/* checkmark (displayed when checked) */
 .mithril-checkbox input[type="checkbox"] ~ .mithril-checkbox-shape:after {
 	left: 0.25em;
 	top: 0.0325em;
@@ -77,6 +78,7 @@
 	transform: rotate(45deg);
 }
 
+/* radio indicator (displayed when checked) */
 .mithril-checkbox input[type="radio"] ~ .mithril-checkbox-shape:after {
 	left: 0.15em;
 	top: 0.15em;
