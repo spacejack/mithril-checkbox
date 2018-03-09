@@ -3,7 +3,6 @@
 	display: inline-block;
 	position: relative;
 	padding-left: 1.35em;
-	cursor: pointer;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -14,6 +13,23 @@
 .mithril-checkbox input {
 	position: absolute;
 	opacity: 0;
+	width: 1px;
+	height: 1px;
+	cursor: pointer;
+}
+
+/* Container for children that appear in label */
+.mithril-checkbox .mithril-checkbox-children {
+	cursor: pointer;
+}
+
+/* Children disabled style */
+.mithril-checkbox input:disabled ~ .mithril-checkbox-children {
+	cursor: default;
+}
+
+/* Button element */
+.mithril-checkbox .mithril-checkbox-shape {
 	cursor: pointer;
 }
 
@@ -51,6 +67,12 @@
 /* focused style */
 .mithril-checkbox input:focus ~ .mithril-checkbox-shape {
 	outline: #428BCA 1px solid;
+}
+
+/* disabled style */
+.mithril-checkbox input:disabled ~ .mithril-checkbox-shape {
+	opacity: 0.625;
+	cursor: default;
 }
 
 /* checkmark/indicator (hidden when not checked) */

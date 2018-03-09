@@ -77,6 +77,47 @@ const demoComponent = {
 						country.text
 					)
 				))
+			),
+			m('h3', 'Disabled styles:'),
+			m('p',
+				m('div',
+					m(mCheckbox,
+						{
+							type: 'checkbox',
+							disabled: true
+						},
+						'Disabled checkbox'
+					)
+				),
+				m('div',
+					m(mCheckbox,
+						{
+							type: 'checkbox',
+							checked: true,
+							disabled: true
+						},
+						'Disabled, checked checkbox'
+					)
+				),
+				m('div',
+					m(mCheckbox,
+						{
+							type: 'radio',
+							disabled: true
+						},
+						'Disabled radio'
+					)
+				),
+				m('div',
+					m(mCheckbox,
+						{
+							type: 'radio',
+							checked: true,
+							disabled: true
+						},
+						'Disabled, checked radio'
+					)
+				)
 			)
 		)
 	}

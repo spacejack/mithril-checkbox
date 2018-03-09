@@ -1,7 +1,7 @@
 import * as m from 'mithril'
 
 export interface Attrs {
-	/** An id is required to connect the input and label elements */
+	/** Optional input id. If provided will also be applied to label.for attribute. */
 	id?: string
 	/** Optional input name */
 	name?: string
@@ -31,7 +31,7 @@ export default {
 			containerAttrs,
 			m('input', inputAttrs),
 			m('div.mithril-checkbox-shape'),
-			children
+			m('span.mithril-checkbox-children', children)
 		)
 	}
 } as m.Component<Attrs>

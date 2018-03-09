@@ -10,6 +10,6 @@ exports.default = {
             containerAttrs.for = attrs.id;
         if (attrs.class !== undefined)
             containerAttrs.class = attrs.class;
-        return m('label.mithril-checkbox', containerAttrs, m('input', inputAttrs), m('div.mithril-checkbox-shape'), children);
+        return m('label.mithril-checkbox', containerAttrs, m('input', inputAttrs), m('div.mithril-checkbox-shape'), m('span.mithril-checkbox-children', children));
     }
 };
