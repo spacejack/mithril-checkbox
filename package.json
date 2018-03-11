@@ -1,6 +1,6 @@
 {
   "name": "mithril-checkbox",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Mithril custom checkbox component",
   "keywords": [
     "mithril",
@@ -11,11 +11,12 @@
   "repository": "https://github.com/spacejack/mithril-checkbox",
   "main": "index.js",
   "scripts": {
-    "build-lib": "tsc -p src",
+    "build-lib": "tsc -p src && browserify src/index.ts -p [ tsify --project src/tsconfig.json ] -s MithrilCheckbox -x=mithril -o index.js",
+    "cp-css": "cp index.css example/public/css/mithril-checkbox.css",
     "serve-ex": "http-server -p 3000 example/public",
     "compile-ex": "browserify --debug example/src/main.ts -p [ tsify --project example/src/tsconfig.json ] -o example/public/js/app.js",
-    "watch-ex": "cp index.css example/public/css/mithril-checkbox.css && watchify -v --debug example/src/main.ts -p [ tsify --project example/src/tsconfig.json ] -o example/public/js/app.js",
-    "build-ex": "cp index.css example/public/css/mithril-checkbox.css && browserify example/src/main.ts -p [ tsify --project example/src/tsconfig.json ] | uglifyjs -cm -o example/public/js/app.js",
+    "watch-ex": "run-s cp-css && watchify -v --debug example/src/main.ts -p [ tsify --project example/src/tsconfig.json ] -o example/public/js/app.js",
+    "build-ex": "run-s cp-css && browserify example/src/main.ts -p [ tsify --project example/src/tsconfig.json ] | uglifyjs -cm -o example/public/js/app.js",
     "build-es2015": "tsc src/index.ts --target ES2015",
     "clean-ex": "rm -f example/public/js/app.js",
     "clean-lib": "rm -f index.js index.d.ts",
@@ -34,7 +35,7 @@
     "tslint": "^5.9.1",
     "tslint-microsoft-contrib": "^5.0.3",
     "typescript": "^2.7.2",
-    "uglify-js": "^3.1.13",
+    "uglify-js": "^3.1.14",
     "watchify": "^3.11.0"
   }
 }

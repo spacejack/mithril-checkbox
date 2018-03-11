@@ -1,4 +1,9 @@
-import * as m from 'mithril'
+declare function require(moduleName: string): any
+import {Static as Mithril, Component} from 'mithril'
+// Script or module?
+const m: Mithril = typeof window === 'object' && typeof window['m'] === 'function'
+	? window['m']
+	: require('mithril')
 
 export interface Attrs {
 	/** Optional input id. If provided will also be applied to label.for attribute. */
@@ -19,7 +24,7 @@ export interface Attrs {
 	[id: string]: any
 }
 
-export default {
+const MithrilCheckbox: Component<Attrs> = {
 	view ({attrs, children}) {
 		const inputAttrs = Object.assign(
 			{}, attrs, {type: attrs.type || 'checkbox', class: undefined}
@@ -34,4 +39,6 @@ export default {
 			m('span.mithril-checkbox-children', children)
 		)
 	}
-} as m.Component<Attrs>
+}
+
+export default MithrilCheckbox
