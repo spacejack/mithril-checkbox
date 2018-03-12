@@ -4,6 +4,30 @@ Fully stylable checkbox and radio input components for [Mithril.js](https://mith
 
 Try a [live demo here](https://spacejack.github.io/mithril-checkbox/).
 
+## Install:
+
+    npm install mithril-checkbox
+
+(TypeScript types are included.)
+
+You will need to include the css file for some basic working styles.
+
+Using PostCSS with [postcss-import](https://github.com/postcss/postcss-import) allows you to import the stylesheet from `node_modules`:
+
+```css
+@import "mithril-checkbox";
+```
+
+If you're using a sass compiler, you can add:
+
+```scss
+@import "node_modules/mithril-checkbox/index";
+```
+
+to one of your sass files.
+
+Otherwise you can copy the `node_modules/mithril-checkbox/index.css` file to your project and add it to your html page.
+
 Example use:
 
 ```javascript
