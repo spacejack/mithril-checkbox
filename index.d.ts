@@ -1,5 +1,4 @@
-/// <reference types="mithril" />
-import { Component } from 'mithril';
+import * as m from 'mithril';
 export interface Attrs {
     /** Optional input id. If provided will also be applied to label.for attribute. */
     id?: string;
@@ -18,5 +17,5 @@ export interface Attrs {
     /** Any other attrs are forwarded to the hidden input element */
     [id: string]: any;
 }
-declare const MithrilCheckbox: Component<Attrs>;
+declare const MithrilCheckbox: m.Component<Attrs>;
 export default MithrilCheckbox;

@@ -23,6 +23,7 @@
     "no-function-expression": false,
     "no-implicit-dependencies": false,
     "no-increment-decrement": false,
+    "no-non-null-assertion": false,
     "no-object-literal-type-assertion": false,
     "no-parameter-reassignment": false,
     "no-reference": false,
