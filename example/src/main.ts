@@ -37,15 +37,18 @@ const demoComponent = {
 			m('h3', 'Select sports:'),
 			m('p',
 				'Sports:',
-				sportIds.map(sid => m('span', ' ' + sports.find(s => s.id === sid)!.text))
+				sportIds.map(sid => m('span',
+					{key: sid},
+					' ' + sports.find(s => s.id === sid)!.text)
+				)
 			),
 			m('p',
 				sports.map(sport => m('div',
+					{key: sport.id},
 					m(mCheckbox,
 						{
 							type: 'checkbox',
 							checked: sportIds.indexOf(sport.id) >= 0,
-							key: sport.id,
 							onclick (e: Event) {
 								const checked = (e.currentTarget as HTMLInputElement).checked
 								if (checked) {
@@ -66,12 +69,12 @@ const demoComponent = {
 			),
 			m('p',
 				countries.map(country => m('div',
+					{key: country.id},
 					m(mCheckbox,
 						{
 							type: 'radio',
 							name: 'country',
 							checked: countryId === country.id,
-							key: country.id,
 							onclick() {countryId = country.id}
 						},
 						country.text
