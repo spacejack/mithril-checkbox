@@ -1,7 +1,7 @@
 import * as m from 'mithril'
 
 export interface Attrs {
-	/** Optional input id. If provided will also be applied to label.for attribute. */
+	/** Optional input id */
 	id?: string
 	/** Optional input name */
 	name?: string
@@ -20,15 +20,28 @@ export interface Attrs {
 }
 
 const MithrilCheckbox: m.Component<Attrs> = {
-	view ({attrs, children}) {
-		const inputAttrs = Object.assign(
-			{}, attrs, {type: attrs.type || 'checkbox', class: undefined}
-		)
-		const containerAttrs: {[id: string]: any} = {}
-		if (attrs.id !== undefined) containerAttrs.for = attrs.id
-		if (attrs.class !== undefined) containerAttrs.class = attrs.class
+	// Separate label attributes and input attributes
+	// and remove `key` attribute since it should not
+	// be used within this view.
+	view ({attrs: {
+		key, class: inputClass, className, for: idFor, style,
+		...inputAttrs
+	}, children}) {
+		// Build label attrs object
+		const labelAttrs: {[id: string]: any} = {}
+		if (className !== undefined) {
+			labelAttrs.className = className
+		} else if (inputClass !== undefined) {
+			labelAttrs.class = inputClass
+		}
+		if (style !== undefined) {
+			labelAttrs.style = style
+		}
+		if (idFor !== undefined) {
+			labelAttrs.for = idFor
+		}
 		return m('label.mithril-checkbox',
-			containerAttrs,
+			labelAttrs,
 			m('input', inputAttrs),
 			m('div.mithril-checkbox-shape'),
 			m('span.mithril-checkbox-children', children)

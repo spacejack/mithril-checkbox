@@ -1,6 +1,6 @@
 import * as m from 'mithril';
 export interface Attrs {
-    /** Optional input id. If provided will also be applied to label.for attribute. */
+    /** Optional input id */
     id?: string;
     /** Optional input name */
     name?: string;
